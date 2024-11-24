@@ -13,8 +13,8 @@ export default function Home() {
       <Image src={'/assets/yy.png'} alt="logo" width={200}  height={200} 
       className="w-[100px] h-[100px] md:w-[200px] md:h-[200px] transition"/>
       <div className="div flex flex-row gap-4">
-      <h2 className="font-semibold">F A R A M A T S I </h2>
-      <h2 className="font-semibold text-purple-900"> M O T O R S</h2>
+      <h2 className="font-semibold text-sm md:text-lg">F A R A M A T S I </h2>
+      <h2 className="font-semibold text-sm md:text-lg text-purple-900"> M O T O R S</h2>
       </div>
     </div>
     <CustomizationProvider>
