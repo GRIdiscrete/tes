@@ -1,4 +1,4 @@
-import { PresentationControls, Environment, Lightformer } from "@react-three/drei";
+import { PresentationControls, Environment, Lightformer, Html } from "@react-three/drei";
 import Car from "./Car";
 import { useThree } from "@react-three/fiber";
 import * as THREE from 'three'
