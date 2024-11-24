@@ -19,7 +19,7 @@ export default function Home() {
     </div>
     <CustomizationProvider>
       <div className="w-screen h-screen select-none flex flex-col md:flex-row">
-        <div className="w-full h-1/3 md:h-full md:flex-1">
+        <div className="w-full h-1/2 md:h-full md:flex-1">
           <Canvas dpr={[1, 2]} >
             <color attach="background" args={["#FFFFFF"]} />
             <Experience />
