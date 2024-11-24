@@ -4,8 +4,29 @@ import { useThree } from "@react-three/fiber";
 import * as THREE from 'three'
 
 const Experience = () => {
+    const captureScreenshot = () => {
+    const dataURL = gl.domElement.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = dataURL;
+    link.download = 'car_view.png';
+    link.click();
+  };
   return (
     <>
+            <Html>
+        <button onClick={captureScreenshot} style={{
+          borderRadius: '20px',
+          backgroundColor: '#ffffff',
+          position: 'absolute',
+          top: -60,
+          color: '#333',
+          left: 300,
+          padding: '5px 15px',
+          boxShadow: '0px 0px 10px #800080'
+
+        }}>Export Image</button>
+      </Html>
+
       <PresentationControls
         speed={3.5}
         global
