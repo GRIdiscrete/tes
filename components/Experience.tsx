@@ -12,12 +12,12 @@ const Experience = () => {
         polar={[-0.1, Math.PI / 4]}
         rotation={[Math.PI / 8, Math.PI / 1.5, 0]}
       >
-        <ambientLight intensity={0.5} color={0x350035} />
+        <ambientLight intensity={0.5} color={0x350035} castShadow />
         <directionalLight
           position={[10, 10, 5]}
           intensity={1.5}
         />
-        <Car scale={[1.2, 1.2, 1.2]}/>
+        <Car scale={[1.2, 1.2, 1.2]} castShadow/>
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}> <ringGeometry args={[3.1, 3.2, 132]} /> <meshBasicMaterial color={0x800080} side={THREE.DoubleSide} /> </mesh>
         <Environment preset="city" />
       </PresentationControls>
