@@ -10,7 +10,7 @@ const Experience = () => {
         speed={3.5}
         global
         polar={[-0.1, Math.PI / 4]}
-        rotation={[Math.PI / 4, Math.PI / 1.5, 0]}
+        rotation={[Math.PI / 8, Math.PI / 1.5, 0]}
       >
         <ambientLight intensity={0.5} color={0x350035} />
         <directionalLight
