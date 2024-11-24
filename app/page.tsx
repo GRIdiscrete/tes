@@ -12,7 +12,7 @@ export default function Home() {
     <div className="w-full h-12 z-10 fixed  left-5 mb-4">
       <Image src={'/assets/yy.png'} alt="logo" width={200}  height={200} 
       className="w-[100px] h-[100px] md:w-[200px] md:h-[200px] transition"/>
-      <div className="div flex flex-row gap-4">
+      <div className="div flex flex-row gap-4 hidden md:block">
       <h2 className="font-semibold text-sm md:text-lg">F A R A M A T S I </h2>
       <h2 className="font-semibold text-sm md:text-lg text-purple-900"> M O T O R S</h2>
       </div>
