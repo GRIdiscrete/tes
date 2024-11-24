@@ -4,6 +4,7 @@ import { useThree } from "@react-three/fiber";
 import * as THREE from 'three'
 
 const Experience = () => {
+      const { gl, scene, camera, set } = useThree();
     const captureScreenshot = () => {
     const dataURL = gl.domElement.toDataURL('image/png');
     const link = document.createElement('a');
