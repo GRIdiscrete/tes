@@ -35,7 +35,7 @@ const Configurator: React.FC = () => {
   };
 
   return (
-    <div className="lg:fixed right-0 bottom-[10vh] w-[400px] flex flex-col gap-4 max-h-[83vh] overflow-y-auto items-center lg:items-start">
+    <div style={{ backdropFilter: 'blur(10px)' }} className="lg:fixed z-50 bg-white bg-opacity-50  right-0 bottom-[10vh] w-[400px] flex flex-col gap-4 max-h-[83vh] overflow-y-auto items-center lg:items-start p-4 shadow-lg rounded-md">
       <div className="uppercase font-bold font-poppins text-black">Body Color</div>
       <div className="flex flex-row gap-8 items-center flex-wrap py-4">
         {carColors.map((item, index) => (

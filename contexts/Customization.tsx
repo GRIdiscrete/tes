@@ -6,11 +6,11 @@ interface ColorOption {
 }
 
 const carColors: ColorOption[] = [
-  { color: "#000000", name: "black" },
+  { color: "#494949", name: "charcoal" },
   { color: "#FFFFFF", name: "white" },
-  { color: "#FF0000", name: "red" },
-  { color: "#0000FF", name: "blue" },
-  { color: "#FFFF00", name: "yellow" },
+  { color: "#E1C169", name: "Sunset" },
+  { color: "#3B4D31", name: "Marine" },
+  { color: "#7E6B40", name: "African Gold" },
 ];
 
 const steeringColors: ColorOption[] = [
@@ -25,13 +25,13 @@ const glassColors: ColorOption[] = [
 ];
 
 const wheelColors: ColorOption[] = [
-  { color: "#000000", name: "black" },
-  { color: "#FFFFFF", name: "white" },
-  { color: "#FF0000", name: "red" },
+  { color: "#000000", name: "Michellin Wing" },
+  { color: "#333", name: "Pirelli 01" },
+  { color: "#5E5E5E", name: "Vansan 45" },
 ];
 
 const backlightColors: ColorOption[] = [
-  { color: "#000000", name: "black" },
+  { color: "#333333", name: "Blacked Out" },
   { color: "#FFFFFF", name: "white" },
   { color: "#FF0000", name: "red" },
   { color: "#0000FF", name: "blue" },

@@ -5,7 +5,12 @@ import * as THREE from "three";
 import { GroupProps } from "@react-three/fiber";
 
 const Car: React.FC<GroupProps> = (props) => {
-  const { scene } = useGLTF("./models/final_car.glb");
+
+
+  const { scene } = useGLTF("./models/desuntitled.glb");
+
+
+  
   const {
     bodyColor,
     glassColor,
@@ -25,7 +30,7 @@ const Car: React.FC<GroupProps> = (props) => {
       new THREE.MeshStandardMaterial({
         color: bodyColor.color,
         metalness: 0.5,
-        roughness: 0.2,
+        roughness: 0.05,
       }),
     [bodyColor]
   );
@@ -74,33 +79,37 @@ const Car: React.FC<GroupProps> = (props) => {
     scene.traverse((child: any) => {
       if ((child as THREE.Mesh).isMesh) {
         const mesh = child as THREE.Mesh;
-        if (mesh.name === "body") {
+        console.log(mesh.name)
+        if (mesh.name.startsWith("door") || mesh.name == "hilux_mb01_hilux_mb016_0"
+        || mesh.name == "hilux_mb01_hilux_mb017_0"
+        ) {
           mesh.material = bodyMaterial;
-        } else if (mesh.name === "glass") {
+        } else if (mesh.name.includes("glass")) {
           mesh.material = glassMaterial;
-        } else if (mesh.name.startsWith("steering_")) {
+        }
+         else if (mesh.name.includes("movsteer_10_movsteer_108_0")) {
           mesh.material = steeringWheelMaterial;
-        } else if (mesh.name.startsWith("tire")) {
+        } else if (mesh.name.includes("wheel_rf4_0") || mesh.name.includes("wheel_rf5_0") ) {
           mesh.visible = showTires;
           if (showTires) {
             mesh.material = tireMaterial;
           }
-        } else if (mesh.name.includes("tail")) {
+        } else if (mesh.name.startsWith("boot") || mesh.name == "hilux_mb01_wheel_rf2_0") {
           mesh.visible = showTail;
           if (showTail) {
             mesh.material = tailMaterial;
           }
-        } else if (mesh.name.includes("leather")) {
+        } else if (mesh.name.includes("hilux_dashboard") || mesh.name.includes("movsteer")  ) {
           mesh.material = leatherMaterial;
-        } else if (mesh.name.includes("brakes")) {
+        } else if (mesh.name.includes("taillight")) {
           mesh.material = backlightMaterial;
-        } else if (mesh.name.includes("interior_light")) {
+        } else if (mesh.name.includes("hilux_mb07_hilux_mb0710_0")) {
           mesh.material = interiorMaterial;
-        } else if (mesh.name.startsWith("brake")) {
+        } else if (mesh.name.includes("wheel_rf3_0")) {
           if (brakeDesign === 1) {
-            mesh.visible = !mesh.name.startsWith("brake2");
+            mesh.visible = !mesh.name.includes("wheel_rf3_0");
           } else if (brakeDesign === 2) {
-            mesh.visible = mesh.name.startsWith("brake2");
+            mesh.visible = mesh.name.includes("wheel_rf3_0");
           }
         }
       }
@@ -114,6 +123,6 @@ const Car: React.FC<GroupProps> = (props) => {
   );
 };
 
-useGLTF.preload("./models/final_car.glb");
+useGLTF.preload("./models/desuntitled.glb");
 
 export default Car;
