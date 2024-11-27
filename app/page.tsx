@@ -8,6 +8,7 @@ import Configurator from "@/components/Configurator";
 import Logo from "@/components/Logo";
 import Navbar from "@/components/Navbar";
 import { Html } from "@react-three/drei";
+import Image from "next/image";
 
 export default function Home() {
   const [isConfiguratorVisible, setConfiguratorVisible] = useState(false);
@@ -41,9 +42,10 @@ export default function Home() {
       <section
         id="hero"
         className="w-[100vw] h-screen flex flex-col justify-center items-center text-center pt-20 bg-transparent "
-        style={{ backgroundImage: "url('/assets/gg.png')", backgroundSize: 'cover',  backgroundPosition: 'center' }}
+        style={{ backgroundImage: "url('/assets/bg.png')", backgroundSize: 'cover',  backgroundPosition: 'center' }}
          // Update image path
       >
+        <Image src={'assets/reg.png'} alt="hero" width={200} height={200}/>
           </section>
 
 
