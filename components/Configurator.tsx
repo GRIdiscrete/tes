@@ -8,6 +8,7 @@ import brake1Image from "../public/assets/brake1.png";
 import brake2Image from "../public/assets/brake2.png";
 
 const Configurator: React.FC = () => {
+  console.log("Configurator is rendering"); // Log to check if it's rendering
   const {
     carColors,
     steeringColors,
@@ -35,13 +36,16 @@ const Configurator: React.FC = () => {
   };
 
   return (
-    <div style={{ backdropFilter: 'blur(10px)' }} className="lg:fixed z-50 bg-white bg-opacity-50  right-0 bottom-[10vh] w-[400px] flex flex-col gap-4 max-h-[83vh] overflow-y-auto items-center lg:items-start p-4 shadow-lg rounded-md">
+    <div 
+      style={{ backdropFilter: 'blur(10px)' }} 
+      className="relative z-10 bg-white bg-opacity-70 right-0 w-full lg:w-[300px] max-h-full h-auto lg:max-h-[80vh] overflow-y-auto flex flex-col gap-4 items-center lg:items-start p-4 shadow-lg rounded-md"
+    >
       <div className="uppercase font-bold font-poppins text-black">Body Color</div>
       <div className="flex flex-row gap-8 items-center flex-wrap py-4">
         {carColors.map((item, index) => (
           <div
             key={index}
-            className={`flex flex-col items-center transition-all duration-400 cursor-pointer ${item.color === bodyColor.color ? "cursor-pointer opacity-90" : ""}`}
+            className={`flex flex-col items-center transition-all duration-400 cursor-pointer ${item.color === bodyColor.color ? "opacity-90" : ""}`}
             onClick={() => handleColorClick(setBodyColor, item)}
           >
             <div
@@ -54,7 +58,8 @@ const Configurator: React.FC = () => {
           </div>
         ))}
       </div>
-
+      {/* Repeat similar structure for Seat Color, Interior Color, etc. */}
+    
       <div className="uppercase font-bold font-poppins text-black">Seat Color</div>
       <div className="flex flex-row gap-8 items-center flex-wrap py-4">
         {carColors.map((item, index) => (

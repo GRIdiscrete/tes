@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Link } from "react-scroll";
@@ -17,6 +17,7 @@ export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        console.log( 'Section is visible', entry.isIntersecting); // Log intersection status
         setConfiguratorVisible(entry.isIntersecting);
       },
       { threshold: 0.5 }
@@ -37,40 +38,90 @@ export default function Home() {
     <>
       {/* Logo Component */}
 
-      <Navbar /> {/* Add Navbar here */}
-      {/* Hero Section */}
-      <section
-        id="hero"
-        className="w-[100vw] h-screen flex flex-col justify-center items-center text-center pt-20 bg-transparent "
-        style={{ backgroundImage: "url('/assets/bg.png')", backgroundSize: 'cover',  backgroundPosition: 'center' }}
-         // Update image path
-      >
-        <Image src={'assets/reg.png'} alt="hero" width={200} height={200}/>
-          </section>
+      <Navbar />
+  
+    {/* Hero Section */}
+<section
+  id="hero"
+  className="w-[100vw] h-screen flex flex-col justify-center items-start text-center pt-20 bg-transparent mb-10"
+  style={{
+    backgroundImage: "url('/assets/bg.png')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  <div 
+    className="flex-grow flex flex-col justify-center items-start pt-20 pl-10"
+    style={{
+      width: '100%', // Makes the content take full width
+      maxWidth: '1200px', // Prevents content from stretching too much on larger screens
+    }}
+  >
+    <Image 
+      src="/assets/reg.png" 
+      alt="hero" 
+      width={200} 
+      height={200} 
+      priority 
+      style={{ marginLeft: '-1' }}
+    />
+  </div>
+</section>
+
+{/* Add this CSS for responsiveness */}
+<style jsx>{`
+  #hero {
+    position: relative;
+  }
+
+  /* Adjust for smaller screens */
+  @media (max-width: 768px) {
+    #hero {
+      height: 100vh;
+      padding: 0;
+      backgroundPosition: top; /* Adjust the background alignment */
+    }
+
+    #hero .flex-grow {
+      justify-content: center; /* Center content vertically for smaller screens */
+      padding-left: 20px; /* Adjust spacing for smaller screens */
+    }
+
+    img {
+      width: 150px; /* Adjust logo size for mobile */
+      height: auto;
+    }
+  }
+`}</style>
+ 
+
+ <CustomizationProvider>
+  <section
+    ref={customizationRef}
+    id="customization"
+    className="w-full h-screen select-none flex flex-col md:flex-row bg-transparent text-white relative"
+  >
+    {/* Left: 3D Canvas */}
+    <div className="w-full h-1/2 md:h-full md:flex-1 flex items-center justify-center relative">
+      <Canvas dpr={[1, 2]}>
+        <color attach="background" args={["#FFFFFF"]} />
+        <Experience />
+      </Canvas>
+    </div>
+
+    {/* Right: Configurator */}
+    <div
+      className={`w-full h-1/2 md:h-full md:w-[300px] flex items-center justify-center relative ${
+        isConfiguratorVisible ? "block" : "hidden"
+      }`}
+    >
+      <Configurator />
+    </div>
+  </section>
+</CustomizationProvider>
 
 
-         
 
-      {/* Customization Section */}
-      <CustomizationProvider>
-        <section
-          ref={customizationRef}
-          id="customization"
-          className="w-full h h-screen select-none flex flex-col md:flex-row mt-16 bg-transparent text-white"
-        >
-          <div className="w-full h-1/2 md:h-full md:flex-1 flex items-center justify-center">
-            <Canvas dpr={[1, 2]}>
-              <color attach="background" args={["#FFFFFF"]} />
-              <Experience />
-            </Canvas>
-          </div>
-          {isConfiguratorVisible && (
-            <div className="justify-center w-full h-1/2 md:h-full md:w-[300px] flex items-center">
-              <Configurator />
-            </div>
-          )}
-        </section>
-      </CustomizationProvider>
 
       {/* Pricing Section */}
       <section id="pricing" className="w-full h-fit-content p-8 py-20 px-6 bg-transparent text-black border-t-2 ">
