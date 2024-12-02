@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-opacity-20 h-14 w-[100vw] bg-white font-extrabold pt-4 pb-2 text-black fixed z-10"
+      className="bg-opacity-10 h-14 w-[100vw] bg-transparent font-extrabold pt-4 pb-2 text-black fixed z-10"
       style={{ backdropFilter: 'blur(10px)' }}
     >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-10">
@@ -20,7 +20,7 @@ const Navbar = () => {
 
           {/* Hamburger Menu for Mobile */}
           <button
-            className="md:hidden text-black focus:outline-none"
+            className="md:hidden text-black focus:outline-none bg-transparent z-60 mi-4"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             ☰
@@ -30,7 +30,7 @@ const Navbar = () => {
           <div
             className={`${
               menuOpen ? 'block' : 'hidden'
-            } md:flex md:space-x-8 absolute md:relative top-14 left-0 md:top-0 w-full md:w-auto bg-white md:bg-transparent z-50`}
+            } md:flex md:space-x-8 absolute md:relative top-14 left-0 md:top-0 w-full md:w-auto bg-transparent md:bg-transparent z-50`} // Set bg-transparent here
           >
             <Link
               to="hero"
