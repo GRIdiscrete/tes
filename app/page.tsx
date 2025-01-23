@@ -58,7 +58,7 @@ export default function Home() {
     className="flex-grow flex flex-col justify-center items-start pt-20 pl-10"
     style={{
       width: '100%', // Makes the content take full width
-      maxWidth: '1200px', // Prevents content from stretching too much on larger screens
+      maxWidth: '1000px', // Prevents content from stretching too much on larger screens
       alignItems: 'flex-start', // Aligns content to the left
     }}
   >
@@ -153,7 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section/ Why Choose Us */}
       <section
         id="about"
         className="w-full min-h-screen bg-transparent py-20 px-6 text-center mt-16 shadow-lg border-t border-gray-600"
@@ -171,7 +171,7 @@ export default function Home() {
         {/* Cards for each list item */}
         <div className="flex flex-col md:flex-row justify-center gap-4 mt-20">
           <div className="w-full md:w-1/3 bg-gray-100 p-7 rounded-lg shadow-md">
-            <FaCar className="text-purple-600 text-4xl mb-4" />
+            <FaCar className="text-purple-800 text-4xl mb-4 text align-center" />
             <h3 className="text-xl font-light text-black">
               Wide range of models available.
             </h3>
@@ -198,7 +198,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="text-sm text-gray-400 py-4 fixed bottom-2 left-1/2 transform -translate-x-1/2">
-          <p>Copyright 2024 FARAMATSI MOTORS</p>
+          <p>Copyright 2025 FARAMATSI MOTORS</p>
         </footer>
       </section>
     </>
