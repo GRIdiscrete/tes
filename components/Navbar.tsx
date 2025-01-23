@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-opacity-10 h-14 w-[100vw] bg-transparent font-extrabold pt-4 pb-2 text-black fixed z-10"
+      className="bg-opacity-10 h-14 w-[100vw] bg-white font-extrabold pt-4 pb-2 text-black fixed z-10"
       style={{ backdropFilter: 'blur(10px)' }}
     >
       <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-10">
